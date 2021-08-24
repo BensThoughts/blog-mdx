@@ -9,6 +9,10 @@
     "plugin:import/recommended",
     "plugin:@next/next/recommended"
   ],
+  "settings": {
+    "mdx/code-blocks": true,
+    "mdx/language-mapper": {}
+  },
   "rules": {
     "indent": [2, 2],
     "max-len": ["error", { "ignoreUrls": true }],
@@ -16,6 +20,36 @@
     "semi": "error"
   },
   "overrides": [
+    {
+      "files": ["**/*.md"],
+      "rules": {
+        "prettier/prettier": [
+          2,
+          {
+            "parser": "markdown"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/*.mdx"],
+      "parser": "eslint-mdx",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "extends": [
+        "plugin:mdx/overrides",
+        "plugin:mdx/recommended",
+        "plugin:mdx/code-blocks"
+      ],
+      "rules": {
+        "indent": [2, 2],
+        "max-len": ["error", { "ignoreUrls": true }],
+        "semi": "off"
+      }
+    },
     {
       "files":   ["**/*.ts", "**/*.tsx"],
       "env": {
