@@ -24,6 +24,7 @@
       },
       "extends": [
         "next",
+        "plugin:@next/next/recommended",
         "next/core-web-vitals",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -40,7 +41,8 @@
           "project": "./tsconfig.json"
       },
       "plugins": [
-          "@typescript-eslint"
+          "@typescript-eslint",
+
       ],
       "rules": {
         "indent": [2, 2],
@@ -54,6 +56,8 @@
         // "@typescript-eslint/no-unsafe-assignment": "off",
         // "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/require-await": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         // TODO: End of todo.
 
         // Use function hoisting to improve code readability
