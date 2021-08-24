@@ -5,7 +5,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { Heading, Text } from '@chakra-ui/layout';
 
 
 import TestComp from '../components/TestComp';
@@ -17,23 +16,23 @@ type PostProps = {
   };
 };
 
-const H1 = (props: { children: ReactNode }) => {
-  return (
-    <Heading as="h1" size="lg">
-      {props.children}
-    </Heading>
-  );
-};
+// const H1 = (props: { children: ReactNode }) => {
+//   return (
+//     <Heading as="h1" size="lg">
+//       {props.children}
+//     </Heading>
+//   );
+// };
 
-const P = (props: { children: ReactNode}) => {
-  return (
-    <Text as="p" size="md">{props.children}</Text>
-  );
-};
+// const P = (props: { children: ReactNode}) => {
+//   return (
+//     <Text as="p" size="md">{props.children}</Text>
+//   );
+// };
 
 const components = {
-  h1: H1,
-  p: P,
+  // h1: H1,
+  // p: P,
   TestComp
 };
 
@@ -67,7 +66,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { params: { post: 'some-random-path' } },
+      { params: { post: 'ultimate-blog' } },
       { params: { post: 'alternative-random-path' } }
     ],
     fallback: false
