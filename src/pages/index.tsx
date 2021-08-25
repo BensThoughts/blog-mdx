@@ -1,6 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next';
-import Header from '../components/Header';
-import Container from '../components/Container';
 import Link from 'next/link';
 import { getSortedPostsData } from '../utils/posts';
 import { ReactNode } from 'react';
@@ -30,7 +28,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <Container title="Bens Thoughts">
+    <div>
       <section>
         <H2>Blog</H2>
         <ul>
@@ -47,6 +45,6 @@ export default function Home(props: HomeProps) {
           ))}
         </ul>
       </section>
-    </Container>
+    </div>
   );
 };

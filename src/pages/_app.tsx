@@ -2,13 +2,16 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import customTheme from '../styles/customTheme';
-import Header from '../components/Header';
+import Header from '../components/sections/Header';
+import LandingLayout from '../components/layouts/LandingLayout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={customTheme}>
-      <Header />
-      <Component {...pageProps} />
+      <LandingLayout>
+        <Header />
+        <Component {...pageProps} />
+      </LandingLayout>
     </ChakraProvider>
   );
 }
