@@ -31,7 +31,6 @@ interface HomeProps {
 export default function Home(props: HomeProps) {
   return (
     <Container title="Bens Thoughts">
-      <Header />
       <section>
         <H2>Blog</H2>
         <ul>
