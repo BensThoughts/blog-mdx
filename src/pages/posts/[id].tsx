@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { parseISO, format } from 'date-fns';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 
 import TestComp from '../../components/TestComp';
+
+import Date from '../../components/Date';
 
 import H1 from '../../components/mdx/H1';
 import P from '../../components/mdx/P';
@@ -37,6 +40,7 @@ const Post = (props: PostProps) => {
         <H1>
           {props.metaInformation.title}
         </H1>
+        <Date dateString={props.metaInformation.date} />
         <MDXRemote {...props.source} components={components} />
       </div>
       <div>SEO Information: {JSON.stringify(props.metaInformation)}</div>
