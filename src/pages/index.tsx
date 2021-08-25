@@ -4,6 +4,8 @@ import Container from '../components/Container';
 import Link from 'next/link';
 import { getSortedPostsData } from '../utils/posts';
 import { ReactNode } from 'react';
+
+import H2 from '../components/mdx/H2';
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
@@ -31,7 +33,7 @@ export default function Home(props: HomeProps) {
     <Container title="Bens Thoughts">
       <Header />
       <section>
-        <h2>Blog</h2>
+        <H2>Blog</H2>
         <ul>
           {props.allPostsData.map(({ id, title, date}) => (
             <li key={id}>
