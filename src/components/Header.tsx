@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from '@emotion/styled';
+import { useColorMode } from '@chakra-ui/color-mode';
+import { Button } from '@chakra-ui/button';
+
 
 const HeaderDiv = styled.div`
-  background: rgb(17, 30, 39);
   color: #fff;
   font-family: Lato;
 `;
@@ -26,6 +28,7 @@ const Logo = styled.div`
 `;
 
 export default function Header() {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HeaderDiv>
       <HeaderNav>
@@ -36,6 +39,9 @@ export default function Header() {
             </a>
           </Link>
         </Logo>
+        <Button onClick={toggleColorMode}>
+          Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+        </Button>
       </HeaderNav>
     </HeaderDiv>
   );

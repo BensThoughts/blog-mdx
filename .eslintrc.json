@@ -93,6 +93,7 @@
         "@typescript-eslint/require-await": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
         // TODO: End of todo.
 
         // Use function hoisting to improve code readability

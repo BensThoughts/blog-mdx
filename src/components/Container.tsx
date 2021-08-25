@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 
 const LayoutDiv = styled.div`
-  background: #152530;
   color: #fff;
   font-family: Lato;
 `;
