@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 
-const Quote = styled(Box)`
+const Quote = styled(Text)`
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\\201C""\\201D""\\2018""\\2019";
+  font-style: italic;
   ::before {
-    content: open-quote;
     font-size: 4em;
     line-height: 0.1em;
     margin-right: 0.25em;
@@ -16,6 +15,8 @@ const Quote = styled(Box)`
   }
   p {
     display: inline;
+    font-family: monospace;
+    font-size: 1rem;
   }
 `;
 
