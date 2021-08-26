@@ -6,7 +6,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import TestComp from '../../components/TestComp';
 
-import Date from '../../components/Date';
+import Date from '../../components/mdx/Date';
 
 import H1 from '../../components/mdx/H1';
 import P from '../../components/mdx/P';
@@ -60,11 +60,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = await getPostData(params!.id as string);
-  // const folderPath = path.join(process.cwd(), 'src/content');
-  // const params = props.params!.post;
-  // const filePath = path.join(folderPath, `${params}.mdx`);
-  // const rawFileSource = fs.readFileSync(filePath);
-  // const { content, data } = matter(rawFileSource);
   const mdxSource = await serialize(content);
 
   return {

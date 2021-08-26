@@ -8,8 +8,9 @@ import LandingLayout from '../components/layouts/LandingLayout';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={customTheme}>
+      <Header />
       <LandingLayout>
-        <Header />
+
         <Component {...pageProps} />
       </LandingLayout>
     </ChakraProvider>

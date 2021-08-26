@@ -2,6 +2,7 @@ import { Flex } from '@chakra-ui/layout';
 import { ReactNode } from 'react';
 
 import Header from '../sections/Header';
+import MenuDrawer from '../sections/MenuDrawer';
 
 interface LandingLayoutProps {
   children: ReactNode,
@@ -21,6 +22,7 @@ export default function LandingLayout(props: LandingLayoutProps) {
       {/* <Header /> */}
       {/* <Component pageProps={...props.pageProps} /> */}
       {props.children}
+      {/* <MenuDrawer /> */}
     </Flex>
   );
 }
