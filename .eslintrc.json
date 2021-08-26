@@ -5,31 +5,21 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:import/recommended",
     "plugin:@next/next/recommended"
   ],
-  "settings": {
-    "mdx/code-blocks": true,
-    "mdx/language-mapper": {}
-  },
-  "rules": {
-    "indent": [2, 2],
-    "max-len": ["error", { "ignoreUrls": true }],
-    "quotes": [2, "single", { "avoidEscape": true }],
-    "semi": "error"
-  },
   "overrides": [
     {
-      "files": ["**/*.md"],
+      "files": ["**/*.js"],
       "rules": {
-        "prettier/prettier": [
-          2,
-          {
-            "parser": "markdown"
-          }
-        ]
-      }
+        "indent": [2, 2],
+        "max-len": ["error", { "ignoreUrls": true }],
+        "quotes": [2, "single", { "avoidEscape": true }],
+        "semi": "error"
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/recommended"
+      ]
     },
     {
       "files": ["**/*.mdx"],
@@ -41,13 +31,11 @@
       },
       "extends": [
         "plugin:mdx/overrides",
-        "plugin:mdx/recommended",
         "plugin:mdx/code-blocks"
       ],
-      "rules": {
-        "indent": [2, 2],
-        "max-len": ["error", { "ignoreUrls": true }],
-        "semi": "off"
+      "settings": {
+        "mdx/code-blocks": true,
+        "mdx/language-mapper": {}
       }
     },
     {

@@ -2,7 +2,9 @@ import {
   Box,
   Flex,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
+  forwardRef,
+  FlexProps
 } from '@chakra-ui/react';
 import { MoonIcon } from '@chakra-ui/icons';
 import { useColorMode } from '@chakra-ui/color-mode';
@@ -13,7 +15,8 @@ import MenuItem from './MenuItem';
 
 
 const DarkModeButton = ({ mx }: { mx: string }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // TODO: Add colorMode back to useColorMode();
+  const { toggleColorMode } = useColorMode();
   return (
     <IconButton mx={mx}  aria-label="Color Mode" onClick={toggleColorMode}>
       <MoonIcon />
@@ -23,7 +26,7 @@ const DarkModeButton = ({ mx }: { mx: string }) => {
 };
 
 
-const Header = (props: any) => {
+const Header = forwardRef<FlexProps, 'div'>((props, ref ) => {
   const bg = useColorModeValue('gray.100', 'gray.600');
   const color = useColorModeValue('gray.600', 'gray.100');
 
@@ -45,6 +48,7 @@ const Header = (props: any) => {
       position="sticky"
       top="0"
       {...props}
+      ref={ref}
     >
       <Flex ml="3" align="center">
         <Logo></Logo>
@@ -82,6 +86,6 @@ const Header = (props: any) => {
       </Box>
     </Flex>
   );
-};
+});
 
 export default Header;

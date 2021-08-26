@@ -1,11 +1,10 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { getSortedPostsData } from '../utils/posts';
 import { ReactNode } from 'react';
 import { Box } from '@chakra-ui/layout';
 
 import H2 from '../components/mdx/H2';
-import LandingLayout from '../components/layouts/LandingLayout';
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'

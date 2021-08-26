@@ -1,7 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import styled from '@emotion/styled';
-import { NONAME } from 'dns';
 
 const Pre = styled(Box)`
   text-align: left;

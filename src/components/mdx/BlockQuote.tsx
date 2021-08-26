@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
-import { Box, Text, useColorModeValue } from '@chakra-ui/react';
+import { Text, useColorModeValue } from '@chakra-ui/react';
 
 const Quote = styled(Text)`
   border-left: 10px solid #ccc;

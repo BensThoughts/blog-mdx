@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { parseISO, format } from 'date-fns';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
@@ -16,9 +15,7 @@ import BlockQuote from '../../components/mdx/BlockQuote';
 
 
 import { getAllPostIds, getPostData } from '../../utils/posts';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import LandingLayout from '../../components/layouts/LandingLayout';
-
+import { Box, Flex } from '@chakra-ui/react';
 
 type PostProps = {
   source: MDXRemoteSerializeResult;
