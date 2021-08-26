@@ -35,7 +35,7 @@ const Header = (props: any) => {
       wrap="wrap"
       w="100%"
       h={{
-        base: '64px',
+        base: '54px',
         md: '72px'
       }}
       mb={8}
