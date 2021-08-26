@@ -5,8 +5,15 @@
     "es2021": true
   },
   "extends": [
-    "plugin:@next/next/recommended"
+    "plugin:@next/next/recommended",
+    "plugin:mdx/recommended"
   ],
+  "settings": {
+    "mdx/code-blocks": true,
+    // optional, if you want to disable language mapper, set it to `false`
+    // if you want to override the default language mapper inside, you can provide your own
+    "mdx/language-mapper": {}
+  },
   "overrides": [
     {
       "files": ["**/*.js"],
@@ -22,21 +29,24 @@
       ]
     },
     {
-      "files": ["**/*.mdx"],
-      "parser": "eslint-mdx",
-      "parserOptions": {
-        "ecmaFeatures": {
-          "jsx": true
-        }
-      },
-      "extends": [
-        "plugin:mdx/overrides",
-        "plugin:mdx/code-blocks"
-      ],
-      "settings": {
-        "mdx/code-blocks": true,
-        "mdx/language-mapper": {}
+      "files": ["**/*.md"],
+      "rules": {
+        "prettier/prettier": [
+          2,
+          {
+            // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
+            "parser": "markdown"
+          }
+        ]
       }
+    },
+    {
+      "files": ["**/*.mdx"],
+      "extends": ["plugin:mdx/overrides"]
+    },
+    {
+      "files": "**/*.{md,mdx}/**",
+      "extends": "plugin:mdx/code-blocks"
     },
     {
       "files":   ["**/*.ts", "**/*.tsx"],
