@@ -4,8 +4,6 @@ import styled from '@emotion/styled';
 
 const Pre = styled(Box)`
   text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
   overflow-x: auto;
 `;
 
@@ -26,34 +24,28 @@ const LineContent = styled.span`
 
 export default function CodeElement(props: { children: string }) {
   return (
-    <Box padding={3} overflow="auto">
-      <Highlight {...defaultProps} code={props.children.trim()} language="jsx">
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <Pre
-            as="pre"
-            w={{
-              base:'sm',
-              md: '700px'
-            }}
-            className={className}
-            style={style}
-          >
-            {tokens.map((line, i) => (
-              <Line key={i} {...getLineProps({ line, key: i })}>
-                <LineNo
-                  as="span"
-                  display={{ base: 'none', md: 'table-cell' }}
-                >{i + 1}</LineNo>
-                <LineContent>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </LineContent>
-              </Line>
-            ))}
-          </Pre>
-        )}
-      </Highlight>
-    </Box>
+    <Highlight {...defaultProps} code={props.children.trim()} language="jsx">
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <Pre
+          as="pre"
+          className={className}
+          style={style}
+        >
+          {tokens.map((line, i) => (
+            <Line key={i} {...getLineProps({ line, key: i })}>
+              <LineNo
+                as="span"
+                display={{ base: 'none', md: 'table-cell' }}
+              >{i + 1}</LineNo>
+              <LineContent>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </LineContent>
+            </Line>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
   );
 };

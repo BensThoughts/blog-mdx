@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -16,6 +20,14 @@ a {
 }
 
 .rehype-code-title {
-    font-family: monospace;
-    font-size: smaller;
+  @apply font-mono text-xs sm:text-base sm:px-3 bg-gray-600 border border-b-0 border-gray-200 rounded-t-lg border-opacity-25 w-screen sm:w-max;
+}
+
+
+.rehype-code-title h1 {
+  @apply font-mono text-sm sm:text-base font-bold text-gray-200 m-4
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
 }
