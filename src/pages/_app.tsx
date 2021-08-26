@@ -9,10 +9,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={customTheme}>
       <Header />
-      <LandingLayout>
 
-        <Component {...pageProps} />
-      </LandingLayout>
+      <Component {...pageProps} />
     </ChakraProvider>
   );
 }

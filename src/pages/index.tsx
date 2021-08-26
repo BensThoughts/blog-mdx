@@ -2,8 +2,10 @@ import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { getSortedPostsData } from '../utils/posts';
 import { ReactNode } from 'react';
+import { Box } from '@chakra-ui/layout';
 
 import H2 from '../components/mdx/H2';
+import LandingLayout from '../components/layouts/LandingLayout';
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
@@ -28,7 +30,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <div>
+    <Box>
       <section>
         <H2>Blog</H2>
         <ul>
@@ -45,6 +47,6 @@ export default function Home(props: HomeProps) {
           ))}
         </ul>
       </section>
-    </div>
+    </Box>
   );
 };

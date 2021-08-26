@@ -19,7 +19,7 @@ export default function LandingLayout(props: LandingLayoutProps) {
       m="0 auto"
       {...props}
     >
-      {/* <Header /> */}
+      <Header />
       {/* <Component pageProps={...props.pageProps} /> */}
       {props.children}
       {/* <MenuDrawer /> */}

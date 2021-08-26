@@ -13,6 +13,9 @@ import P from '../../components/mdx/P';
 import H2 from '../../components/mdx/H2';
 import CodeElement from '../../components/mdx/CodeElement';
 import { getAllPostIds, getPostData } from '../../utils/posts';
+import { Box } from '@chakra-ui/react';
+import LandingLayout from '../../components/layouts/LandingLayout';
+
 
 type PostProps = {
   source: MDXRemoteSerializeResult;
@@ -35,16 +38,13 @@ const components = {
 
 const Post = (props: PostProps) => {
   return (
-    <>
-      <div>
-        <H1>
-          {props.metaInformation.title}
-        </H1>
-        <Date dateString={props.metaInformation.date} />
-        <MDXRemote {...props.source} components={components} />
-      </div>
-      <div>SEO Information: {JSON.stringify(props.metaInformation)}</div>
-    </>
+    <Box>
+      <H1>
+        {props.metaInformation.title}
+      </H1>
+      <Date dateString={props.metaInformation.date} />
+      <MDXRemote {...props.source} components={components} />
+    </Box>
   );
 };
 
