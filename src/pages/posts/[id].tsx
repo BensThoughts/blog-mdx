@@ -12,8 +12,11 @@ import H1 from '../../components/mdx/H1';
 import P from '../../components/mdx/P';
 import H2 from '../../components/mdx/H2';
 import CodeElement from '../../components/mdx/CodeElement';
+import BlockQuote from '../../components/mdx/BlockQuote';
+
+
 import { getAllPostIds, getPostData } from '../../utils/posts';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import LandingLayout from '../../components/layouts/LandingLayout';
 
 
@@ -29,6 +32,7 @@ type PostProps = {
 
 
 const components = {
+  blockquote: BlockQuote,
   h1: H1,
   h2: H2,
   p: P,
@@ -38,13 +42,15 @@ const components = {
 
 const Post = (props: PostProps) => {
   return (
-    <Box>
-      <H1>
-        {props.metaInformation.title}
-      </H1>
-      <Date dateString={props.metaInformation.date} />
+    <Flex direction="column" align="center">
+      <Box>
+        <H1>
+          {props.metaInformation.title}
+        </H1>
+        <Date dateString={props.metaInformation.date} />
+      </Box>
       <MDXRemote {...props.source} components={components} />
-    </Box>
+    </Flex>
   );
 };
 
@@ -60,7 +66,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = await getPostData(params!.id as string);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content,{
+    mdxOptions: {
+      rehypePlugins: [
+        require('rehype-code-title')
+      ]
+    }
+  });
 
   return {
     props: {
