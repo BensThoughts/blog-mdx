@@ -1,5 +1,6 @@
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {
+  Box,
   Button,
   Drawer,
   DrawerBody,
@@ -9,10 +10,12 @@ import {
   DrawerHeader,
   DrawerOverlay,
   IconButton,
+  useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
 import { MutableRefObject, useRef } from 'react';
 import MenuItem from './MenuItem';
+import menuLinks from './menuLinks';
 
 interface MenuDrawerProps {
   display: {
@@ -25,6 +28,8 @@ interface MenuDrawerProps {
 export default function MenuDrawer(props: MenuDrawerProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef() as MutableRefObject<HTMLButtonElement>;
+
+  const bg = useColorModeValue('gray.200', 'gray.600');
 
   return (
     <>
@@ -47,11 +52,17 @@ export default function MenuDrawer(props: MenuDrawerProps) {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
-          <DrawerBody>
-            <MenuItem to="/">Home</MenuItem>
-            <MenuItem to="/blog">Blog</MenuItem>
-            <MenuItem to="/about">About</MenuItem>
-            <MenuItem to="/project">Projects</MenuItem>
+          <DrawerBody textAlign="center">
+            {menuLinks.map((menuLink) => {
+              const { path, name } = menuLink;
+              return (
+                <Box key={path} _hover={{ bg: bg}}>
+                  <MenuItem onClick={onClose} to={path}>
+                    {name}
+                  </MenuItem>
+                </Box>
+              );
+            })}
           </DrawerBody>
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
