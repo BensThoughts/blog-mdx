@@ -4,12 +4,11 @@ import { ReactNode } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import styled from '@emotion/styled';
 
-const Pre = styled.pre`
+const Pre = styled(Box)`
   text-align: left;
   margin: 1em 0;
   padding: 0.5em;
   overflow-x: auto;
-  width: 700px;
 `;
 
 const Line = styled.div`
@@ -26,7 +25,6 @@ const LineNo = styled.span`
 
 const LineContent = styled.span`
   display: table-cell;
-  max-width: 100px;
 `;
 
 export default function CodeElement(props: { children: string }) {
@@ -34,7 +32,15 @@ export default function CodeElement(props: { children: string }) {
   return (
     <Highlight {...defaultProps} code={props.children.trim()} language="jsx">
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
+        <Pre
+          as="pre"
+          w={{
+            base:'sm',
+            md: '700px'
+          }}
+          className={className}
+          style={style}
+        >
           {tokens.map((line, i) => (
             <Line key={i} {...getLineProps({ line, key: i })}>
               <LineNo>{i + 1}</LineNo>
