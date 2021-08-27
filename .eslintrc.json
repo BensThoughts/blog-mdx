@@ -41,8 +41,16 @@
       }
     },
     {
-      "files": ["**/*.mdx"],
-      "extends": ["plugin:mdx/overrides"]
+      "files": ["*.mdx"],
+      "extends": ["plugin:mdx/overrides", "plugin:mdx/recommended"],
+      "parser": "eslint-mdx",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true,
+          "modules": false
+        },
+        "sourceType": "module"
+      }
     },
     {
       "files": "**/*.{md,mdx}/**",
