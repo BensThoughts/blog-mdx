@@ -8,8 +8,11 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <Script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lepture/github-cards@latest/jsdelivr/widget.js">
-          </Script>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
