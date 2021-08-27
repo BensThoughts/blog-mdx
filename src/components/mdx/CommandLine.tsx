@@ -64,7 +64,6 @@ function copyToClipboard(text: string) {
 
 export default function CommandLine(props: CommandLineProps) {
   const { command, options, args } = props;
-  const [wig, setWig] = useState(false);
   const clipBoard = command + ' ' + options + ' ' + args;
   return (
     <div className="w-screen md:max-w-4xl bg-gray-600 inline-block border-solid border-opacity-20 border-gray-100 border-2 rounded-md p-2">
@@ -77,7 +76,7 @@ export default function CommandLine(props: CommandLineProps) {
             <text className="text-gray-200 mr-4">&nbsp;{args}</text>
           </div>
           <button 
-            onClick={() => {navigator.clipboard.writeText(clipBoard);}}
+            onClick={() => {void navigator.clipboard.writeText(clipBoard);}}
             type="button"
             className="bg-gray-600 rounded p-2 border-2 border-black hover:border-blue-500 active:bg-gray-500"
           >
