@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import dracula from 'prism-react-renderer/themes/dracula';
 import styled from '@emotion/styled';
 
 const Pre = styled(Box)`
@@ -22,14 +23,27 @@ const LineContent = styled.span`
   display: table-cell;
 `;
 
-export default function CodeElement(props: { children: string }) {
+interface CodeElementProps {
+  children: string,
+  className: string
+}
+
+export default function CodeElement(props: CodeElementProps) {
+  const children = props.children;
+  const language = props.className.replace('language-', '') as Language;
+
   return (
-    <Highlight {...defaultProps} code={props.children.trim()} language="jsx">
+    <Highlight
+      {...defaultProps}
+      theme={dracula}
+      code={children}
+      language={language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Pre
           as="pre"
-          className={className}
           style={style}
+          className={className}
         >
           {tokens.map((line, i) => (
             <Line key={i} {...getLineProps({ line, key: i })}>
