@@ -20,7 +20,7 @@ a {
 }
 
 .rehype-code-title {
-  @apply font-mono text-xs sm:text-base sm:px-3 bg-gray-600 border border-b-0 border-gray-200 rounded-t-lg border-opacity-25 w-screen sm:w-max;
+  @apply my-3 font-mono text-xs sm:text-base sm:px-3 bg-gray-600 border border-b-0 border-gray-200 rounded-t-lg border-opacity-25 w-screen sm:max-w-4xl;
 }
 
 
@@ -29,5 +29,5 @@ a {
 }
 
 .rehype-code-title + pre {
-  @apply mt-0 rounded-t-none;
+  @apply mt-0 rounded-t-none mx-5;
 }

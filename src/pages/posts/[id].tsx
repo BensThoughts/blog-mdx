@@ -12,10 +12,11 @@ import P from '../../components/mdx/P';
 import H2 from '../../components/mdx/H2';
 import CodeElement from '../../components/mdx/CodeElement';
 import BlockQuote from '../../components/mdx/BlockQuote';
+import CommandLine from '../../components/mdx/CommandLine';
 
 
 import { getAllPostIds, getPostData } from '../../utils/posts';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 type PostProps = {
   source: MDXRemoteSerializeResult;
@@ -34,7 +35,8 @@ const components = {
   h2: H2,
   p: P,
   code: CodeElement,
-  TestComp
+  TestComp,
+  CommandLine
 };
 
 const Post = (props: PostProps) => {
@@ -44,7 +46,12 @@ const Post = (props: PostProps) => {
         <H1>
           {props.metaInformation.title}
         </H1>
-        <Date dateString={props.metaInformation.date} />
+        <Flex direction="row" justify="space-between">
+          <Date dateString={props.metaInformation.date} />
+          <Text as="i">
+            Read time: {props.metaInformation.readTime} min.
+          </Text>
+        </Flex>
       </Box>
       <MDXRemote {...props.source} components={components} />
     </Flex>
