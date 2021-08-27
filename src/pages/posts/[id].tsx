@@ -5,14 +5,15 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import TestComp from '../../components/TestComp';
 
-import Date from '../../components/mdx/Date';
-
-import H1 from '../../components/mdx/H1';
-import P from '../../components/mdx/P';
-import H2 from '../../components/mdx/H2';
-import CodeElement from '../../components/mdx/CodeElement';
-import BlockQuote from '../../components/mdx/BlockQuote';
-import CommandLine from '../../components/mdx/CommandLine';
+import {
+  H1,
+  H2,
+  P,
+  CodeElement,
+  BlockQuote,
+  CommandLine,
+  Date
+} from '@app/components/mdx';
 
 
 import { getAllPostIds, getPostData } from '../../utils/posts';
