@@ -1,25 +1,35 @@
 import {
   Box,
+  Button,
   Flex,
   IconButton,
   useColorModeValue,
   forwardRef,
   FlexProps
 } from '@chakra-ui/react';
-import { MoonIcon } from '@chakra-ui/icons';
+import { MoonIcon, SearchIcon } from '@chakra-ui/icons';
 import { useColorMode } from '@chakra-ui/color-mode';
-import Logo from './Logo';
+import Logo from '@app/components/sections/Logo';
 
-import MenuDrawer from './MenuDrawer';
-import MenuItem from './MenuItem';
+import MenuDrawer from '@app/components/sections/MenuDrawer';
+import MenuItem from '@app/components/sections/MenuItem';
+
+import styled from '@emotion/styled';
+
+const IconButton1 = styled(IconButton)`
+  
+`;
 
 
 const DarkModeButton = ({ mx }: { mx: string }) => {
+  const accent = useColorModeValue('blogLight.accent', 'blogDark.accent');
+  const primary = useColorModeValue('blogLight.primary', 'blogDark.primary');
   // TODO: Add colorMode back to useColorMode();
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
+  console.log(colorMode);
   return (
-    <IconButton mx={mx}  aria-label="Color Mode" onClick={toggleColorMode}>
-      <MoonIcon />
+    <IconButton mx={mx} colorScheme={colorMode === 'light' ? 'blogLight' : 'blogDark'} aria-label="Color Mode" onClick={toggleColorMode}>
+      {colorMode === 'light' ? <MoonIcon /> : <MoonIcon />}
       {/* Toggle {colorMode === 'light' ? 'Dark' : 'Light'} */}
     </IconButton>
   );
@@ -27,7 +37,7 @@ const DarkModeButton = ({ mx }: { mx: string }) => {
 
 
 const Header = forwardRef<FlexProps, 'div'>((props, ref ) => {
-  const bg = useColorModeValue('gray.100', 'gray.600');
+  const primary = useColorModeValue('blogLight.primary', 'blogDark.primary');
   const color = useColorModeValue('gray.600', 'gray.100');
 
   return (
@@ -43,7 +53,7 @@ const Header = forwardRef<FlexProps, 'div'>((props, ref ) => {
       }}
       mb={8}
       p={0}
-      bg={bg}
+      bg={primary}
       color={color}
       position="sticky"
       top="0"
@@ -74,7 +84,7 @@ const Header = forwardRef<FlexProps, 'div'>((props, ref ) => {
             md: 'row'
           }}
           pt={[4, 4, 0, 0]}
-          bg={bg}
+          bg={primary}
           color={color}
         >
           <MenuItem to="/">Home</MenuItem>

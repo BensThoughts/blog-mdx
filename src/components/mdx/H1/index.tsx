@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/layout';
+import { Heading, useColorModeValue } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import styled from '@emotion/styled';
 
@@ -7,9 +7,10 @@ import styled from '@emotion/styled';
 // `;
 
 export default function H1(props: { children: ReactNode }) {
+  const color = useColorModeValue('blogLight.primary', 'blogDark.primary');
   return (
-    <h1 className="font-sans font-bold md:font-press-start md:text-lg text-2xl">
+    <Heading>
       {props.children}
-    </h1>
+    </Heading>
   );
 };

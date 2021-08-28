@@ -6,14 +6,16 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import TestComp from '../../components/TestComp';
 
 import {
-  H1,
+  // H1,
   H2,
   P,
   CodeElement,
-  BlockQuote,
   CommandLine,
   Date
 } from '@app/components/mdx';
+
+import H1 from '@app/components/mdx/H1/index';
+import Blockquote from '@app/components/mdx/Blockquote';
 
 
 import { getAllPostIds, getPostData } from '../../utils/posts';
@@ -31,7 +33,7 @@ type PostProps = {
 
 
 const components = {
-  blockquote: BlockQuote,
+  blockquote: Blockquote,
   h1: H1,
   h2: H2,
   p: P,

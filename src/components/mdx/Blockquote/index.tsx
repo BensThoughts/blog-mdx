@@ -22,8 +22,10 @@ const Quote = styled(Text)`
 `;
 
 export default function BlockQuote(props: { children: string }) {
-  const bg = useColorModeValue('blogLight.primary', 'blogDark.primary');
+  const primary = useColorModeValue('blogLight.primary', 'blogDark.primary');
+  const secondary = useColorModeValue('blogLight.secondary', 'blogDark.secondary');
+
   return (
-    <Quote as="blockquote" bg={bg}>{props.children}</Quote>
+    <Text as="blockquote" bg={primary} borderLeft="10px solid" borderColor={secondary}>{props.children}</Text>
   );
 }

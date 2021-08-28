@@ -42,15 +42,15 @@
     },
     {
       "files": ["*.mdx"],
-      "extends": ["plugin:mdx/overrides", "plugin:mdx/recommended"],
-      "parser": "eslint-mdx",
-      "parserOptions": {
-        "ecmaFeatures": {
-          "jsx": true,
-          "modules": false
-        },
-        "sourceType": "module"
-      }
+      "extends": ["plugin:mdx/overrides", "plugin:mdx/recommended"]
+      // "parser": "eslint-mdx"
+      // "parserOptions": {
+      //   "ecmaFeatures": {
+      //     "jsx": true,
+      //     "modules": false
+      //   },
+      //   "sourceType": "module"
+      // }
     },
     {
       "files": "**/*.{md,mdx}/**",
@@ -87,7 +87,7 @@
       ],
       "rules": {
         "indent": [2, 2],
-        "max-len": ["warn", { "ignoreUrls": true }],
+        "max-len": ["off", { "ignoreUrls": true }],
         "quotes": [2, "single", { "avoidEscape": true }],
         "semi": "off",
         "@typescript-eslint/semi": ["error"],

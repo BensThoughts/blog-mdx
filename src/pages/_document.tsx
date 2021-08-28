@@ -1,8 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/color-mode';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import theme from '../styles/customTheme';
-import Script from 'next/script';
-
 export default class Document extends NextDocument {
   render() {
     return (

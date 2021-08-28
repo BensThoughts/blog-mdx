@@ -1,53 +1,7 @@
 import styled from '@emotion/styled';
 
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 
-
-// const Terminal = styled.pre`
-//   background-color: black;
-//   border-radius: 0.25rem;
-//   padding: 0.4rem 1rem;
-// `;
-
-// const Prompt = styled.text`
-//   color: green;
-//   margin-right: 1rem;
-// `;
-
-// const Command = styled.text`
-//   color: orange;
-//   margin-right: 1rem;
-// `;
-
-// const Options = styled.text`
-//   margin-right: 1rem;
-// `;
-
-// const Args = styled.text`
-//   color: white;
-// `;
-
-// const TerminalBorder = styled.div`
-//   background-color: #4b5563;
-//   color: whitesmoke;
-//   display: inline-block;
-//   border: 1px solid #727a85;
-//   border-radius: 0.375rem;
-//   padding: 10px;
-// `;
-
-const Button1 = styled.button`
-  background-color: rgba(75, 85, 99, 1);
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  border-width: 2px;
-  background-color: rgba(0, 0, 0, 1);
-  &:hover {
-    border-color: rgba(59, 130, 246, 1);
-  }
-  &:active {
-    background-color: white;
-  }
-`;
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -63,7 +17,7 @@ export default function CommandLine(props: CommandLineProps) {
       (options ? options + ' ' : '') +
       (args ? args : '');
   return (
-    <div className="w-screen md:max-w-4xl bg-gray-600 inline-block border-solid border-opacity-20 border-gray-100 border-2 rounded-md p-2">
+    <Box maxW="container.md" className="w-screen md:max-w-4xl bg-gray-600 inline-block border-solid border-opacity-20 border-gray-100 border-2 rounded-md p-2">
       <pre className="overflow-x-auto bg-black rounded-sm px-4 py-2">
         <div className="flex flex-row justify-between items-center">
           <div>
@@ -84,6 +38,6 @@ export default function CommandLine(props: CommandLineProps) {
           </Button1> */}
         </div>
       </pre>
-    </div> 
+    </Box> 
   );
 }
